@@ -1,0 +1,44 @@
+{
+  "recipes": [
+    {
+      "name": "Sheet-Pan Chicken Fajitas",
+      "ingredients": ["chicken breast", "bell peppers", "yellow onion", "fajita seasoning", "flour tortillas", "sour cream", "shredded cheddar cheese", "lime"]
+    },
+    {
+      "name": "Spaghetti with Meat Sauce",
+      "ingredients": ["spaghetti", "ground beef", "marinara sauce", "yellow onion", "garlic", "parmesan cheese", "olive oil"]
+    },
+    {
+      "name": "Slow-Cooker Chili",
+      "ingredients": ["ground beef", "kidney beans", "diced tomatoes", "tomato paste", "chili powder", "yellow onion", "shredded cheddar cheese"]
+    },
+    {
+      "name": "Baked Chicken Tenders & Mac",
+      "ingredients": ["chicken tenderloins", "breadcrumbs", "eggs", "macaroni and cheese", "frozen broccoli", "ketchup"]
+    },
+    {
+      "name": "Beef Tacos",
+      "ingredients": ["ground beef", "taco seasoning", "taco shells", "shredded lettuce", "roma tomatoes", "shredded cheddar cheese", "salsa"]
+    },
+    {
+      "name": "Teriyaki Chicken Rice Bowls",
+      "ingredients": ["chicken thighs", "teriyaki sauce", "white rice", "frozen stir fry vegetables", "sesame seeds"]
+    },
+    {
+      "name": "Breakfast-for-Dinner Pancakes",
+      "ingredients": ["pancake mix", "eggs", "milk", "breakfast sausage links", "maple syrup", "butter", "frozen mixed berries"]
+    },
+    {
+      "name": "Creamy Tuscan Chicken Pasta",
+      "ingredients": ["chicken breast", "penne pasta", "heavy cream", "baby spinach", "sun dried tomatoes", "garlic", "parmesan cheese"]
+    },
+    {
+      "name": "Homemade Cheese Pizza Night",
+      "ingredients": ["all purpose flour", "instant yeast", "pizza sauce", "shredded mozzarella cheese", "olive oil", "pepperoni"]
+    },
+    {
+      "name": "Loaded Baked Potato Soup",
+      "ingredients": ["russet potatoes", "bacon", "chicken broth", "heavy cream", "shredded cheddar cheese", "green onions", "butter", "all purpose flour"]
+    }
+  ]
+}
