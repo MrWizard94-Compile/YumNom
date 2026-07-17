@@ -3,7 +3,7 @@
 Runs the 10 recipes in recipes.json through the walmart.io affiliate Search API
 and reports the match rate against the spec's >=90% release gate.
 
-Required environment variables (from spike 1 onboarding):
+Required environment variables (or entries in a .env file at the repo root; from spike 1 onboarding):
   WALMART_CONSUMER_ID       walmart.io consumer ID
   WALMART_PRIVATE_KEY_PATH  path to the RSA private key PEM uploaded to walmart.io
   WALMART_KEY_VERSION       key version (default: "1")
@@ -27,7 +27,19 @@ MATCH_RATE_GATE = 0.90
 CANDIDATES_PER_INGREDIENT = 5
 
 
+def load_env_file():
+    env_path = Path(__file__).resolve().parents[2] / ".env"
+    if not env_path.exists():
+        return
+    for line in env_path.read_text().splitlines():
+        line = line.strip()
+        if line and not line.startswith("#") and "=" in line:
+            key, _, value = line.partition("=")
+            os.environ.setdefault(key.strip(), value.strip().strip('"'))
+
+
 def load_credentials():
+    load_env_file()
     consumer_id = os.environ.get("WALMART_CONSUMER_ID")
     key_path = os.environ.get("WALMART_PRIVATE_KEY_PATH")
     if not consumer_id or not key_path:

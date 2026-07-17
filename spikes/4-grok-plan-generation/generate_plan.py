@@ -6,7 +6,7 @@ Streams one plan for a fixed test profile and reports:
   - token usage and estimated cost
   - JSON validity + constraint adherence (budget, allergy blocklist, cook time)
 
-Required environment variables:
+Required environment variables (or entries in a .env file at the repo root):
   XAI_API_KEY   from https://console.x.ai
 Optional:
   XAI_MODEL     default "grok-4-1-fast" (check https://docs.x.ai for current model ids)
@@ -16,8 +16,20 @@ import json
 import os
 import sys
 import time
+from pathlib import Path
 
 import requests
+
+
+def load_env_file():
+    env_path = Path(__file__).resolve().parents[2] / ".env"
+    if not env_path.exists():
+        return
+    for line in env_path.read_text().splitlines():
+        line = line.strip()
+        if line and not line.startswith("#") and "=" in line:
+            key, _, value = line.partition("=")
+            os.environ.setdefault(key.strip(), value.strip().strip('"'))
 
 API_URL = "https://api.x.ai/v1/chat/completions"
 PROMPT_VERSION = "v1"
@@ -144,9 +156,10 @@ def check_constraints(plan):
 
 
 def main():
+    load_env_file()
     api_key = os.environ.get("XAI_API_KEY")
     if not api_key:
-        sys.exit("Missing XAI_API_KEY (get one at https://console.x.ai).")
+        sys.exit("Missing XAI_API_KEY — set it or add 'XAI_API_KEY=...' to .env at the repo root.")
     model = os.environ.get("XAI_MODEL", "grok-4-1-fast")
 
     print(f"Model: {model}  (prompt {PROMPT_VERSION})")
